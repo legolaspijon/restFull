@@ -48,7 +48,7 @@ class UserController extends Controller
             throw new ModelNotFoundException();
         }
 
-        return response([
+        return response()->json([
             'status' => 'ok',
             'data' => $user
         ], 200);
@@ -67,7 +67,7 @@ class UserController extends Controller
             return response([
                 'status' => 'ok',
                 'data' => $user
-            ], 200);
+            ], 200)->json();
 
         } catch (\Exception $e) {
             throw new ModelNotFoundException();
@@ -85,7 +85,7 @@ class UserController extends Controller
             throw new ModelNotFoundException();
         }
 
-        return response([
+        return response()->json([
             'status' => 'ok',
             'data' => $user
         ], 200);
@@ -99,7 +99,7 @@ class UserController extends Controller
     {
         $users = $this->userRepository->all();
 
-        return response([
+        return response()->json([
             'status' => 'ok',
             'data' => $users
         ], 200);
@@ -113,7 +113,7 @@ class UserController extends Controller
     {
         $users = $this->userRepository->search($q);
 
-        return response([
+        return response()->json([
             'status' => 'ok',
             'data' => $users
         ]);
